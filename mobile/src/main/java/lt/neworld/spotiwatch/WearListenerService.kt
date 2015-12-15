@@ -1,6 +1,6 @@
 package lt.neworld.spotiwatch
 
-import android.widget.Toast
+import android.content.Intent
 import com.google.android.gms.wearable.MessageEvent
 import com.google.android.gms.wearable.WearableListenerService
 import lt.neworld.spotiwatch.shared.MESSAGE_PATH_NEXT
@@ -18,6 +18,7 @@ class WearListenerService : WearableListenerService() {
     }
 
     private fun next() {
-        Toast.makeText(applicationContext, "Play next song", Toast.LENGTH_LONG).show()
+        val intent = Intent("com.spotify.mobile.android.ui.widget.NEXT")
+        sendBroadcast(intent)
     }
 }
