@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/container"
     android:background="@color/black"
     tools:context="lt.neworld.spotiwatch.MainActivity"
     tools:deviceIds="wear">
 
     <ImageView
+        android:id="@+id/button_next"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/ic_play_arrow_120dp"
