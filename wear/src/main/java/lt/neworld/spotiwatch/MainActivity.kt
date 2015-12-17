@@ -44,6 +44,16 @@ class MainActivity : WearableActivity(), GoogleApiClient.ConnectionCallbacks {
         }
     }
 
+    override fun onEnterAmbient(ambientDetails: Bundle?) {
+        super.onEnterAmbient(ambientDetails)
+        button_next.setImageResource(R.drawable.ic_play_arrow_120dp_stroke)
+    }
+
+    override fun onExitAmbient() {
+        super.onExitAmbient()
+        button_next.setImageResource(R.drawable.ic_play_arrow_120dp_fill)
+    }
+
     override fun onConnectionSuspended(i: Int) {
     }
 

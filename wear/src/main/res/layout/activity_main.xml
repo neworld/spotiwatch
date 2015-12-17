@@ -12,7 +12,7 @@
         android:id="@+id/button_next"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_play_arrow_120dp"
+        android:src="@drawable/ic_play_arrow_120dp_fill"
         android:scaleType="center"/>
 
 </android.support.wearable.view.BoxInsetLayout>
