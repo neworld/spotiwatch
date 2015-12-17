@@ -16,10 +16,9 @@ class MainActivity : WearableActivity(), GoogleApiClient.ConnectionCallbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        connectGoogleApiClient()
-
+        setAmbientEnabled()
         button_next.setOnClickListener() { sendMessage(MESSAGE_PATH_NEXT) }
+        connectGoogleApiClient()
     }
 
     override fun onStart() {
