@@ -8,6 +8,7 @@ import com.google.android.gms.wearable.Node
 import com.google.android.gms.wearable.Wearable
 import kotlinx.android.synthetic.main.activity_main.*
 import lt.neworld.spotiwatch.shared.MESSAGE_PATH_NEXT
+import lt.neworld.spotiwatch.shared.MESSAGE_PATH_PREV
 
 class MainActivity : WearableActivity(), GoogleApiClient.ConnectionCallbacks {
     private lateinit var googleApiClient: GoogleApiClient
@@ -17,7 +18,8 @@ class MainActivity : WearableActivity(), GoogleApiClient.ConnectionCallbacks {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setAmbientEnabled()
-        button_next.setOnClickListener() { sendMessage(MESSAGE_PATH_NEXT) }
+        button_next.setOnClickListener { sendMessage(MESSAGE_PATH_NEXT) }
+        button_prev.setOnClickListener { sendMessage(MESSAGE_PATH_PREV) }
         connectGoogleApiClient()
     }
 
@@ -46,12 +48,14 @@ class MainActivity : WearableActivity(), GoogleApiClient.ConnectionCallbacks {
 
     override fun onEnterAmbient(ambientDetails: Bundle?) {
         super.onEnterAmbient(ambientDetails)
-        button_next.setImageResource(R.drawable.ic_play_arrow_120dp_stroke)
+        button_next.setImageResource(R.drawable.ic_skip_next_stroke)
+        button_prev.setImageResource(R.drawable.ic_skip_previous_stroke)
     }
 
     override fun onExitAmbient() {
         super.onExitAmbient()
-        button_next.setImageResource(R.drawable.ic_play_arrow_120dp_fill)
+        button_next.setImageResource(R.drawable.ic_skip_next_fill)
+        button_prev.setImageResource(R.drawable.ic_skip_previous_fill)
     }
 
     override fun onConnectionSuspended(i: Int) {
