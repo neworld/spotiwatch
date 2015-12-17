@@ -11,7 +11,7 @@ import lt.neworld.spotiwatch.shared.MESSAGE_PATH_NEXT
 
 class MainActivity : WearableActivity(), GoogleApiClient.ConnectionCallbacks {
     private lateinit var googleApiClient: GoogleApiClient
-    private var node: Node? = null
+    private var nodes: List<Node> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class MainActivity : WearableActivity(), GoogleApiClient.ConnectionCallbacks {
 
     override fun onConnected(bundle: Bundle?) {
         Wearable.NodeApi.getConnectedNodes(googleApiClient).setResultCallback {
-            node = it.nodes.first()
+            nodes = it.nodes
         }
     }
 
@@ -58,7 +58,7 @@ class MainActivity : WearableActivity(), GoogleApiClient.ConnectionCallbacks {
     }
 
     private fun sendMessage(path: String) {
-        node?.let {
+        nodes.forEach {
             Wearable.MessageApi.sendMessage(googleApiClient, it.id, path, null).setResultCallback {
                 if (it.status.isSuccess) {
                     Log.i(TAG, "Success send message with path: $path")
