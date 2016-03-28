@@ -9,6 +9,16 @@
     tools:context="lt.neworld.spotiwatch.MainActivity"
     tools:deviceIds="wear">
 
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:layout_marginTopPercent="10%"
+        tools:text="12:00"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"/>
+
     <ImageView
         android:id="@+id/button_next"
         android:layout_height="match_parent"
