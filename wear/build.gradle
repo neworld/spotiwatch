@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'jacoco-android'
 
 android {
     compileSdkVersion 23
@@ -49,4 +50,7 @@ buildscript {
 repositories {
     mavenCentral()
     jcenter()
+}
+jacocoAndroidUnitTestReport {
+    excludes += ['**/*$$*']
 }
